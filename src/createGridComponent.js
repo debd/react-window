@@ -61,6 +61,10 @@ type OuterProps = {|
 
 type InnerProps = {|
   children: React$Node,
+  columnStartIndex: number,
+  columnStopIndex: number,
+  rowStartIndex: number,
+  rowStopIndex: number,                   
   style: {
     [string]: mixed,
   },
@@ -484,6 +488,10 @@ export default function createGridComponent({
         createElement(innerElementType || innerTagName || 'div', {
           children: items,
           ref: innerRef,
+          columnStartIndex,
+          columnStopIndex,
+          rowStartIndex,
+          rowStopIndex,          
           style: {
             height: estimatedTotalHeight,
             pointerEvents: isScrolling ? 'none' : undefined,
